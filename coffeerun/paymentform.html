@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Payment Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  <style>
+    legend.border{
+      width:inherit; /* Or auto */
+      padding:0 10px; /* To give a bit of padding on the left and right */
+      border-bottom:none;
+    }
+    fieldset.border {
+      border: 1px groove #ddd !important;
+      padding: 0 1.4em 1.4em 1.4em !important;
+      margin: 0 0 1.5em 0 !important;
+      -webkit-box-shadow:  0px 0px 0px 0px #000;
+              box-shadow:  0px 0px 0px 0px #000;
+    }
+
+    legend.border {
+      font-size: 1.2em !important;
+      font-weight: bold !important;
+      text-align: left !important;
+    }
+  </style>
+</head>
+<body class="container">
+  <section>
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <header>
+            <h1>Payment Form</h1>
+            <p>Required fields are followed by <strong><abbr title="required">*</abbr></strong>.</p>
+          </header>
+
+          <!-- Contact Information -->
+          <h2>Contact information</h2>
+          <form data-payment="form" class="form-horizontal">
+            <!-- the part of the title-->
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-8">
+                <fieldset class="border">
+                  <!-- Title -->
+                  <legend class="border">Title</legend>
+                  <!-- Mister -->
+                  <div class="">
+                    <input type="radio" name="title" id="title_1" value="Mr.">
+                    <label for="mister">Mister</label>
+                  </div>
+                  <!-- Miss -->
+                  <div class="">
+                    <input type="radio" name="title" id="title_2" value="Ms." checked>
+                    <label for="miss">Miss</label>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <!-- Name -->
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">Name: <strong><abbr title="required">*</abbr></strong></label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">Email: <strong><abbr title="required">*</abbr></strong></label>
+              <div class="col-sm-8">
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+            </div>
+
+            <!--password -->
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">Password: <strong><abbr title="required">*</abbr></strong></label>
+              <div class="col-sm-8">
+                <input type="password" class="form-control" id="pwd" name="pwd" required>
+              </div>
+            </div>
+
+            <h2>Payment information</h2>
+            <!-- Card Type -->
+            <div class="form-group">
+              <label class="control-label col-sm-2">Card type:</label>
+              <div class="col-sm-5">
+                <select class="form-control" name="cardType">
+                  <option value="visa">Visa</option>
+                  <option value="mastercard">Master Card</option>
+                  <option value="americanExpress">American Express</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Card Number -->
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="cardNumber">Card number: <strong><abbr title="required">*</abbr></strong></label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="cardNumber" placeholder="" name="cardNumber" required>
+              </div>
+            </div>
+
+            <!-- Expiration Date -->
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">Expiration date: <strong><abbr title="required">*</abbr></strong>
+            <em>formatted as mm/yy</em>
+            </label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="expirationDate" placeholder="" name="expirationDate" required>
+              </div>
+            </div>
+
+            <!-- Validate the Payment -->
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" data-role="make-payment" class="btn btn-default">Validate the payment</button>
+              </div>
+            </div>
+
+            <div class="modal-dialog">
+              <div id="dialogBox" class="modal">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 id="displayDialogBox" class="displayContent"></h4>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <script src="scripts/formhandler.js" charset="utf-8"></script>
+  <script src="scripts/paymenthandler.js" charset="utf-8"></script>
+</body>
+</html>
